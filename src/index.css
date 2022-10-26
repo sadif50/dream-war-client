@@ -20,6 +20,9 @@ a {
 .primary-bg {
   background-color: #2d3436;
 }
+.primary-text{
+  color: #e6e6e6 !important;
+}
 .secondary-bg {
   background-color: #262626;
 }
