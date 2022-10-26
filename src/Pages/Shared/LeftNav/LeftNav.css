@@ -1,0 +1,22 @@
+.left_nav_course {
+    list-style-type: none;
+    margin-bottom: 20px;
+    border-left: 2px solid #e6e6e6;
+}
+.left_nav_course a {
+    color: #e6e6e6;
+    display: inline-block;
+    padding: 5px 8px;
+    width: 100%;
+    transition: 0.3s ease-in-out;
+}
+.left_nav_course a:hover {
+    background-color: #e6e6e610;
+    color: #fff;
+}
+.side_nav_header {
+    margin-bottom: 30px;
+    border-bottom: 2px solid #e6e6e6;
+    text-align: center;
+    padding-bottom: 5px;
+}

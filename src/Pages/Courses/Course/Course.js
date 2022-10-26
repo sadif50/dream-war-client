@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Course = ({course}) => {
     console.log(course);
-    const {_id, name,course_logo, details, duration, price, ratings, totalEnlors } = course;
+    const {_id, name,course_logo, duration, price, ratings, totalEnlors } = course;
     return (
         <div className='col-md-6'>
             <div className="course_box">
@@ -15,7 +15,7 @@ const Course = ({course}) => {
                     <div>
                         <p className='mb-0'>
                             <small className='d-flex'>
-                                <span className='d-flex align-items-center me-3'><FaClock/>&nbsp;{duration}</span> <span className='d-flex align-items-center me-3'><FaStar/><FaStar/><FaStar/><FaStar/><FaStar/>&nbsp;{ratings}</span>({totalEnlors})
+                                <span className='d-flex align-items-center me-3'><FaClock/>&nbsp;{duration}</span> <span className='d-flex align-items-center me-3'><FaStar/><FaStar/><FaStar/><FaStar/><FaStar/>&nbsp;{ratings}</span>
                             </small>
                         </p>
                         <p className='mb-0'>Price: ${price}</p>
