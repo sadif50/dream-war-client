@@ -20,8 +20,8 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
-                element: <Courses></Courses>
-            },
+                element: <Courses></Courses>,
+                loader: () => fetch('https://dream-war-server.vercel.app/courses')           },
             {
                 path: '/faq',
                 element: <Faq></Faq>
