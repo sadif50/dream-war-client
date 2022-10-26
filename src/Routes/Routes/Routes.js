@@ -32,11 +32,13 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses/:id',
-                element: <CourseDetails></CourseDetails>
+                element: <CourseDetails></CourseDetails>,
+                loader: ({params})=> fetch(`https://dream-war-server.vercel.app/courses/${params.id}`)
             },
             {
                 path: '/checkout/:id',
-                element: <Checkout></Checkout>
+                element: <Checkout></Checkout>,
+                loader: ({params})=> fetch(`https://dream-war-server.vercel.app/courses/${params.id}`)
             }, 
             {
                 path: '/login',
