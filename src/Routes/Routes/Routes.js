@@ -9,6 +9,7 @@ import CourseDetails from "../../Pages/Courses/CourseDetails/CourseDetails";
 import Login from "../../Pages/User/Login/Login";
 import Register from "../../Pages/User/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import PageNotFound from "../../Pages/PageNotFound/PageNotFound";
 
 export const routes = createBrowserRouter([
     {
@@ -50,5 +51,9 @@ export const routes = createBrowserRouter([
                 element: <Register></Register>
             }
         ]
+    },
+    {
+        path: '*',
+        element: <PageNotFound></PageNotFound>
     }
 ])
