@@ -8,6 +8,7 @@ import Checkout from '../../Pages/Checkout/Checkout';
 import CourseDetails from "../../Pages/Courses/CourseDetails/CourseDetails";
 import Login from "../../Pages/User/Login/Login";
 import Register from "../../Pages/User/Register/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -37,7 +38,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/checkout/:id',
-                element: <Checkout></Checkout>,
+                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
                 loader: ({params})=> fetch(`https://dream-war-server.vercel.app/courses/${params.id}`)
             }, 
             {

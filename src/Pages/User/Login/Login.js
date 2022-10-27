@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import './Login.css';
 
@@ -14,6 +14,11 @@ const Login = () => {
 
     const googleProvider = new GoogleAuthProvider();
     const gitHubProvider = new GithubAuthProvider();
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/courses';
 
     const handleLogIn = (e) => {
         e.preventDefault();
@@ -27,7 +32,8 @@ const Login = () => {
         console.log(email, password);
         logIn(email, password)
             .then(() => {
-                setSuccess('Log In Successfull.')
+                setSuccess('Log In Successfull.');
+                navigate(from, {replace: true});
             })
             .catch(err => {
                 setErr(err.message)
@@ -39,7 +45,8 @@ const Login = () => {
         setSuccess('');
         providerLogin(googleProvider)
         .then(res => {
-            setSuccess('Log In Successfull with Google.')
+            setSuccess('Log In Successfull with Google.');
+            navigate(from, {replace: true});
         })
         .catch(err=> setErr(err.message));
     }
@@ -48,7 +55,8 @@ const Login = () => {
         setSuccess('');
         providerLogin(gitHubProvider)
         .then(res => {
-            setSuccess('Log In Successfull with Github.')
+            setSuccess('Log In Successfull with Github.');
+            navigate(from, {replace: true});
         })
         .catch(err=> setErr(err.message));
     }
