@@ -20,6 +20,10 @@
     color: #2d3436;
     background-color: #fff;
 }
+.active {
+    color: #2d3436;
+    background-color: #fff;
+}
 .profile_img {
     height: 40px;
     width: 40px;

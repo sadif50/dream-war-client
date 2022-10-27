@@ -4,9 +4,12 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const PrivateRoute = ({ children }) => {
+    // Load data using context
     const { user, loader } = useContext(AuthContext);
+
     const location = useLocation();
 
+    // Loader play untill get current user data from firebase
     if (loader) {
         return <div className='text-center mt-5'>
             <Spinner animation="border" role="status">
@@ -15,10 +18,12 @@ const PrivateRoute = ({ children }) => {
         </div>
     }
 
+    // Check user for protected route
     if (user && user.uid) {
         return children;
     }
 
+    // Navigate to log in page
     return <Navigate to='/login' state={{ from: location }} replace ></Navigate>
 };
 

@@ -4,7 +4,9 @@ import Course from '../Course/Course';
 import LeftNav from '../../Shared/LeftNav/LeftNav';
 
 const Courses = () => {
+    // get loaded data
     const courses = useLoaderData();
+    
     return (
         <div className="container my-5">
             <div className='row'>

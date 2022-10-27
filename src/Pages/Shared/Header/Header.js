@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { Button, Image, Tooltip } from 'react-bootstrap';
+import { Image, Tooltip } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -13,16 +13,20 @@ import './Header.css';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 
 const Header = () => {
+    // Get data using context
     const { user, logOut } = useContext(AuthContext);
+
+    // Dark and Light Theme Condition
     const [theme, setTheme] = useState(true);
+    
     return (
         <Navbar className='primary-bg' expand="lg">
             <Container>
                 <Navbar.Brand>
-                    <NavLink to='/' className='brand_logo'>
+                    <Link to='/' className='brand_logo'>
                         <Image src={logo}></Image>
                         <span>DreamWar</span>
-                    </NavLink>
+                    </Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -35,7 +39,7 @@ const Header = () => {
                         <div className='mt-3 mt-lg-0 d-flex align-items-center'>
                             {
                                 user?.uid ? <>  
-                                        <NavLink>
+                                        <Link>
                                             <OverlayTrigger
                                                 placement="bottom"
                                                 overlay={<Tooltip id="button-tooltip-2">{user?.displayName}</Tooltip>}
@@ -50,17 +54,17 @@ const Header = () => {
                                                     </span>
                                                 )}
                                             </OverlayTrigger>
-                                        </NavLink>
-                                        <NavLink className='route_item' onClick={logOut}>Log Out</NavLink>
+                                        </Link>
+                                        <Link className='route_item' onClick={logOut}>Log Out</Link>
                                     </>
-                                    : <NavLink className='route_item' to='/login'>LogIn</NavLink>
+                                    : <Link className='route_item' to='/login'>LogIn</Link>
                             }
-                            <NavLink className={theme ? 'dark_btn' : 'light_btn'} onClick={() => setTheme(!theme)}>
+                            <Link className={theme ? 'dark_btn' : 'light_btn'} onClick={() => setTheme(!theme)}>
 
                                 {theme ? <FaMoon /> : <FaSun />}&nbsp;
                                 {theme ? ' Dark Mode' : 'Light Mode'}
 
-                            </NavLink>
+                            </Link>
                         </div>
                     </Nav>
                 </Navbar.Collapse>

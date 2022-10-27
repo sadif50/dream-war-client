@@ -7,27 +7,38 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
+    // load functions using context
     const {createUser, updateInfo} = useContext(AuthContext);
+
+    // Success and Error Message
     const [err, setErr] = useState('');
     const [success, setSuccess] = useState('');
 
+    // User Registration with email and password
     const handleRegister = (e) => {
         e.preventDefault();
+
+        // Initialize Message
         setErr('');
         setSuccess('');
 
         const form = e.target;
+
+        // get form data
         const displayName = form.fullName.value;
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
         
+        // check password length
         if(password.length < 6) {
             setErr('Password should be 6 charecter at least.');
             return;
         }
+
         createUser(email, password)
         .then(res=> {
+            // Set User name and photo url
             updateInfo(displayName, photoURL)
             .then(()=>{
                 setSuccess('User Created Successfully.')

@@ -47,7 +47,7 @@ const Home = () => {
                     />
 
                     <Carousel.Caption>
-                        <h3>We Have The Best Instuctor</h3>
+                        <h3>We Have The Best Instructor</h3>
                         <p>
                             We hire the best instructor for courses. We hire them with world class quality.
                         </p>

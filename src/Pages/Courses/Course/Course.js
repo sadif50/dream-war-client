@@ -5,7 +5,9 @@ import { FaClock, FaStar, FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Course = ({course}) => {
+    // Distructure loaded data
     const {_id, name,course_logo, duration, price, ratings } = course;
+
     return (
         <div className='col-md-6'>
             <div className="course_box">

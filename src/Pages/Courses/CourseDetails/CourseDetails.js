@@ -5,23 +5,30 @@ import { Col, Image, Row } from 'react-bootstrap';
 import { FaClock, FaStar, FaUserAlt, FaArrowRight, FaDownload } from 'react-icons/fa';
 import Pdf from 'react-to-pdf';
 
+// This data used to create pdf
 const ref = React.createRef();
+// Create pdf options
 const options = {
     unit: 'in',
     format: [8.27, 11.67]
 };
 
 const CourseDetails = () => {
+    // get loaded data
     const course = useLoaderData();
+
+    // Distructure loaded data
     const { _id, name, course_logo, details, duration, price, ratings, totalEnlors, overview } = course;
+    
     return (
         <div className='container my-5'>
             <Card className='border-0 '>
                 <Card.Header className='primary-bg d-flex justify-content-between'>
                     <span>Course Details</span>
-                    
+
+                    {/* Create Pdf */}
                     <Pdf targetRef={ref} filename={`${name}.pdf`} options={options} x={.3} y={.5} scale={0.68}>
-                        {({ toPdf }) => <a onClick={toPdf} className='course_btn'><FaDownload/></a>}
+                        {({ toPdf }) => <span onClick={toPdf} className='course_btn'>Pdf <FaDownload/></span>}
                     </Pdf>
                 </Card.Header>
                 <Card.Body className='secondary-bg'>

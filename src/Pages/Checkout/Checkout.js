@@ -4,7 +4,10 @@ import { FaClock, FaStar, FaUserAlt } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 
 const Checkout = () => {
+    // get loaded data
     const course = useLoaderData();
+
+    // Distructure loaded data
     const { name, course_logo, details, duration, price, ratings, totalEnlors, overview } = course;
     return (
         <div className='container my-5'>

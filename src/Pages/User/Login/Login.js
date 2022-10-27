@@ -8,28 +8,37 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import './Login.css';
 
 const Login = () => {
+    // load functions using context
     const { logIn, providerLogin } = useContext(AuthContext);
+
+    // Success and error message
     const [err, setErr] = useState('');
     const [success, setSuccess] = useState('');
 
+    // Log in provider
     const googleProvider = new GoogleAuthProvider();
     const gitHubProvider = new GithubAuthProvider();
 
     const navigate = useNavigate();
     const location = useLocation();
 
+    // get redirect path
     const from = location.state?.from?.pathname || '/courses';
 
+    // This function is for login with email and password
     const handleLogIn = (e) => {
         e.preventDefault();
+
+        // Initialize Message
         setErr('');
         setSuccess('');
 
         const form = e.target;
+
+        // Get form data
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(email, password);
         logIn(email, password)
             .then(() => {
                 setSuccess('Log In Successfull.');
@@ -40,9 +49,12 @@ const Login = () => {
             })
     }
 
+    // Google Log in system
     const googleLogIn = () => {
+        // Initialize Message
         setErr('');
         setSuccess('');
+
         providerLogin(googleProvider)
         .then(res => {
             setSuccess('Log In Successfull with Google.');
@@ -50,9 +62,13 @@ const Login = () => {
         })
         .catch(err=> setErr(err.message));
     }
+
+    // Github Log in system
     const githubLogIn = () => {
+        // Initialize Message
         setErr('');
         setSuccess('');
+
         providerLogin(gitHubProvider)
         .then(res => {
             setSuccess('Log In Successfull with Github.');
