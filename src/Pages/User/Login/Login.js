@@ -5,10 +5,19 @@ import { Link } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
+    const handleLogIn = (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log(email, password);
+    }
     return (
         <div className='login_container secondary-bg'>
             <h2 className='text-center'>PLEASE LOG IN</h2>
-            <Form className='mt-4'>
+            <Form className='mt-4' onSubmit={handleLogIn}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" name='email' placeholder="Enter email" required/>
