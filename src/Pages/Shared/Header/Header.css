@@ -31,3 +31,33 @@
 .profile_img:hover {
     border-color: #fff;
 }
+.dark_btn {
+    padding: 6px 15px;
+    font-weight: 600;
+    border: 1px solid rgb(43, 43, 43);
+    background-color: #161616;
+    box-shadow: 0px 0px 5px #808283;
+    margin-left: 15px;
+    border-radius: 40px;
+    color: rgb(139, 139, 139);
+    transition: 0.3s ease-in-out;
+}
+.light_btn {
+    padding: 6px 15px;
+    font-weight: 600;
+    border: 1px solid #aaa;
+    box-shadow: 0px 0px 5px #808283;
+    margin-left: 15px;
+    border-radius: 40px;
+    color: #fff;
+    transition: 0.3s ease-in-out;
+}
+.light_btn:hover {
+    color: #fff;
+    background-color: #161616;
+}
+
+.dark_btn:hover {
+    color: #fff;
+    background-color: #2d3436;
+}

@@ -1,16 +1,21 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
-import { Image } from 'react-bootstrap';
+import { Button, Image, Tooltip } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { FaMoon, FaSun } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/brand/logo.png';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import './Header.css';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 
 const Header = () => {
-    const {user} = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+    const [theme, setTheme] = useState(true);
+    console.log(user)
     return (
         <Navbar className='primary-bg' expand="lg">
             <Container>
@@ -28,11 +33,36 @@ const Header = () => {
                         <NavLink className='route_item' to='/blog'>Blog</NavLink>
                     </Nav>
                     <Nav>
-                        <Link>
-                            <Image className='profile_img' src='https://scontent.fdac68-1.fna.fbcdn.net/v/t39.30808-6/307468017_823273085361960_8465225884846835712_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeF4Y668lLxok8VEpYcKc2SA-o2KLlR-K8v6jYouVH4ryw68bW8COBMvZ6bXjS9WccElwRasJluSPTDw7ZlPmrAH&_nc_ohc=ziACKDO8tQMAX8uzu2G&_nc_zt=23&_nc_ht=scontent.fdac68-1.fna&oh=00_AT-QL8ZkjDi0jhAxmnRgONZ0AHzD83oxvhlFsXW4yEWGhA&oe=635ECC74'></Image>
-                            <NavLink className='route_item' to='/login'>LogIn</NavLink>
-                            {user?.displayName}
-                        </Link>
+                        <div className='mt-3 mt-lg-0 d-flex align-items-center'>
+                            {
+                                user?.uid ? <>  
+                                        <NavLink>
+                                            <OverlayTrigger
+                                                placement="bottom"
+                                                overlay={<Tooltip id="button-tooltip-2">{user?.displayName}</Tooltip>}
+                                            >
+                                                {({ ref, ...triggerHandler }) => (
+                                                    <span
+                                                        variant="light"
+                                                        {...triggerHandler}
+                                                        className="d-inline-flex align-items-center"
+                                                    >
+                                                        <Image ref={ref} className='profile_img' src={user?.photoURL}></Image>
+                                                    </span>
+                                                )}
+                                            </OverlayTrigger>
+                                        </NavLink>
+                                        <NavLink className='route_item' onClick={logOut}>Log Out</NavLink>
+                                    </>
+                                    : <NavLink className='route_item' to='/login'>LogIn</NavLink>
+                            }
+                            <NavLink className={theme ? 'dark_btn' : 'light_btn'} onClick={() => setTheme(!theme)}>
+
+                                {theme ? <FaMoon /> : <FaSun />}&nbsp;
+                                {theme ? ' Dark Mode' : 'Light Mode'}
+
+                            </NavLink>
+                        </div>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
