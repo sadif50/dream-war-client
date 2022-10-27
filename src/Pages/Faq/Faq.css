@@ -1,0 +1,8 @@
+.accordion-header .accordion-button {
+    background-color: #2d3436 !important;
+    color: #e6e6e6;
+}
+.accordion-item {
+    border-color: #2d3436;
+    border-bottom-color: #e6e6e6;
+}
