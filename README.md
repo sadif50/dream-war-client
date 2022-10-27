@@ -1,6 +1,6 @@
 # DreamWar || Learn Programming, On Your Schedule.
 
-Live App Link: [https://dream-war-602c1.web.app/courses](https://dream-war-602c1.web.app/courses).
+Live App Link: [https://dream-war-602c1.web.app/](https://dream-war-602c1.web.app/).
 
 ## About this website
 
