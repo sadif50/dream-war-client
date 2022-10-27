@@ -15,7 +15,6 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
     const [theme, setTheme] = useState(true);
-    console.log(user)
     return (
         <Navbar className='primary-bg' expand="lg">
             <Container>

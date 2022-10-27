@@ -1,0 +1,48 @@
+.carousel-caption h3 {
+    font-size: 200%;
+}
+.carousel-inner {
+    position: relative;
+}
+.carousel-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.teaching-img {
+    width: 75%;
+}
+.student-img {
+    width: 75%;
+    float: right;
+}
+.partner_img {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+.partner_img img {
+    height: 70px;
+    background-color: #e6e6e6;
+    padding: 5px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+@media screen and (max-width: 992px) {
+    .teaching-img {
+        width: 100%;
+    }
+    .student-img {
+        width: 100%;
+        float: none;
+    }
+}
